@@ -13,6 +13,10 @@ public:
 		denominator_ = denominator;
 	}
 
+	double res() {		
+		return static_cast<double>(numerator_) / static_cast<double>(denominator_);
+	}
+
 	bool operator==(Fraction right) {
 		if (numerator_ == right.numerator_) {
 			if (denominator_ == right.denominator_) {
@@ -27,11 +31,9 @@ public:
 	}
 
 	bool operator>(Fraction right) {
-		if (numerator_ > right.numerator_) {
-			if (denominator_ > right.denominator_) {
-				return true;
-			}
-			else return false;
+		
+		if (res() > right.res()) {
+			return true;
 		}
 		else return false;
 	}
